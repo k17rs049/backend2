@@ -68,7 +68,7 @@
     function updateData() {
        UTdata.fetch()
       .then(function(uTdata){
-        var value = $("#update").val();
+        var value = parseInt($("#update").val());
         uTdata.set(key, value);
         return uTdata.update();
       })
@@ -85,6 +85,17 @@
     }
 
     function countData() {
+      UTdata.count().fetchAll()
+      .then(function(results){
+        $("#display").removeClass();
+        $("#display").addClass("bg-success");
+        $("#dispaly").html(results.count);
+      })
+      .catch(function(reeor){
+        $("#display").removeClass();
+        $("#display").addClass("bg-warning");
+        $("#display").html("count fail:"+ JSON.sringify(error));
+      })
     }
 
     function sortData() {
