@@ -94,7 +94,7 @@
       .catch(function(reeor){
         $("#display").removeClass();
         $("#display").addClass("bg-warning");
-        $("#display").html("count fail:"+ JSON.sringify(error));
+        $("#display").html("count fail:"+ JSON.stringify(error));
       })
     }
 
@@ -103,7 +103,7 @@
       .then(function(results){
         var msg ="";
         for(var i=0; i<results.length; i++){
-          msg += reslts[i].get(key) + "<br>";
+          msg += results[i].get(key) + "<br>";
         }
         $("#display").removeClass();
         $("#display").addClass("text-light");
@@ -112,7 +112,7 @@
       })
       .catch(function(error){
         $("#display").removeClass();
-        $("#display").addClass("bg-waening");
+        $("#display").addClass("bg-warning");
         $("#display").html("delete fail:"+JSON.stringify(error));
       })
     }
